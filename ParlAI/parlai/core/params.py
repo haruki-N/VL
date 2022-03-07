@@ -193,6 +193,7 @@ def str2class(value):
     if ':' not in value:
         raise RuntimeError('Use a colon before the name of the class.')
     name = value.split(':')
+    print(name)
     module = importlib.import_module(name[0])
     return getattr(module, name[1])
 
