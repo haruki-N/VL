@@ -245,7 +245,7 @@ class T5DictionaryAgent(HuggingFaceDictionaryAgent):
         self.null_idx = self[self.null_token]
 
 
-class JapaneseDicitionaryAgent(HuggingFaceDictionaryAgent):
+class JapaneseDictionaryAgent(HuggingFaceDictionaryAgent):
     def __init__(self, opt: Opt, shared=None):
         super().__init__(opt, shared)
 
