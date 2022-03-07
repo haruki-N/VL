@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="cocoa.nlp.ecei.tohoku.ac.jp" id="cdd519b4-38a6-4424-9749-5977f1972cc1" keyPath="$USER_HOME$/.ssh/id_rsa" port="2022" nameFormat="DESCRIPTIVE" username="nagasawa_h" />
+    </configs>
+  </component>
+</project>
