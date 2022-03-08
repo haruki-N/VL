@@ -12,6 +12,7 @@ from parlai.core.params import ParlaiParser
 from parlai.core.opt import Opt
 from parlai.core.agents import Agent
 from parlai.core.dict import DictionaryAgent
+from parlai.agents.hugging_face.dict import JapaneseDictionaryAgent
 from parlai.utils.misc import round_sigfigs
 from .modules import TransresnetModel
 from parlai.tasks.personality_captions.build import build
@@ -72,7 +73,8 @@ class TransresnetAgent(Agent):
 
     @classmethod
     def dictionary_class(cls):
-        return DictionaryAgent
+        # return DictionaryAgent
+        return JapaneseDictionaryAgent
 
     def __init__(self, opt, shared=None):
         self.metrics = {
@@ -96,7 +98,8 @@ class TransresnetAgent(Agent):
 
         if not shared:
             # setup dict
-            self._setup_dict()
+            # self._setup_dict()
+            self._setup_japanese_dict()
             # load the list of personalities
             self.personalities_list = self.load_personalities()
             # possibly load the model from a model file
@@ -419,6 +422,11 @@ class TransresnetAgent(Agent):
             self.dict.unk_token = '<UNK>'
             self.dict.tok2ind = new_tok2ind
             self.dict.ind2tok = new_ind2tok
+
+    def _setup_japanese_dict(self):
+        print("\033[32m" + "ParlAI.projects.personality_captions.transresnet.transresnet" + "\033[0m")
+        print("\033[32m" + "TransresnetAgent._setup_japanese_dict" + "\033[0m")
+        self.dict = JapaneseDictionaryAgent(self.opt)
 
     def receive_metrics(self, metrics_dict):
         """
