@@ -412,6 +412,7 @@ class TransresnetMultimodalModel(TransresnetModel):
             ranked list of k responses
         """
         encoding = encoded[idx : idx + 1, :]
+        candidates_encoded = candidates_encoded.to(encoding.device)
         scores = torch.mm(
             candidates_encoded[idx] if not one_cand_set else candidates_encoded,
             encoding.transpose(0, 1),
